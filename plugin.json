@@ -4,10 +4,10 @@
     "logo": "logo.png",
     "features": [
         {
-            "code": "hello",
-            "explain": "Plugin Template",
+            "code": "totp",
+            "explain": "totp plugin",
             "cmds": [
-                "hello"
+                "totp"
             ]
         }
     ]

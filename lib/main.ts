@@ -1,12 +1,12 @@
-window.exports = {
-    'password': {
-        // mode: 'none',
-        // args: {
-        //     enter: (action) => {
-        //         window.utools.hideMainWindow()
-        //         utools.showNotification('hello')
-        //         window.utools.outPlugin()
-        //     }
-        // }
-    }
+import totp from 'hotp-totp'
+
+window.getCode = async (secret) => {
+    return await totp.totp(secret)
+}
+
+window.copy = (code) => {
+    utools.copyText(code)
+    utools.hideMainWindow()
+    // utools.showNotification('已复制')
+    window.utools.outPlugin()
 }

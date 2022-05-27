@@ -1,12 +1,7 @@
-# utools-template
+# totp-utools
 
-uTools 插件模板。
+uTools TOTP 插件。
 
-uTools template.
+只实现了查询的功能，还差增、改、删除。
 
-
-## 技术栈
-
-* React 17
-* Vite
-* LESS
+![](./res/totp.png)
