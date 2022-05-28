@@ -1,0 +1,10 @@
+{
+    "verson": "1.0.0",
+    "data": [
+        {
+            "name": "Google",
+            "account": "test@example.com",
+            "secret": "z2avs55csadlihky"
+        }
+    ]
+}

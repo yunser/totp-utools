@@ -7,18 +7,30 @@ function App() {
     const [time, setTime] = useState(0)
     const [list, setList] = useState([
         {
-            name: 'Figma',
-            account: '1212@qq.com',
-            code: '123456',
-            secret: 'a4izimro4hvh4yv5',
-        },
-        {
-            name: 'Github',
-            account: '12123@qq.com',
-            code: '123458',
-            secret: 'XJ7V6FXNMUDDXD3V',
+            name: 'Google',
+            account: 'test@example.com',
+            secret: 'z2avs55csadlihky',
         },
     ])
+
+    async function loadData() {
+        const _list = window.getList()
+        console.log('_list', _list)
+        for (let item of _list) {
+            // console.log('item.secret', item.secret)
+            // item.code = getToken({ secret: item.secret, digits: 6, interval: 30 });
+            // item.code = await totp.totp(item.secret)
+            item.code = await window.getCode(item.secret)
+        }
+        setList(_list)
+    }
+
+    useEffect(() => {
+        loadData()
+    }, [])
+
+
+    // console.log('json', JSON.stringify(list))
 
     async function updateCode() {
         for (let item of list) {
@@ -30,14 +42,20 @@ function App() {
         setList([...list])
         setTime(30 - Math.floor((Date.now() / 1000) % 30))
     }
-    useEffect(() => {
-        updateCode()
 
-        setInterval(() => {
+    useEffect(() => {
+        // updateCode()
+
+        const timer = setInterval(() => {
             updateCode()
         }, 1000)
 
-    }, [])
+        return () => {
+            clearInterval(timer)
+        }
+    }, [list])
+
+    // console.log('render/list', list)
 
     return (
         <div>
