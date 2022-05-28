@@ -2,7 +2,7 @@ import totp from 'hotp-totp'
 // import fs from 'fs'
 const fs = require('fs') // TODO use import
 
-const dataPath = '/Users/yunser/data/totp/data2.json'
+const dataPath = '/Users/yunser/data/totp/data.json'
 
 window.getList = () => {
     try {

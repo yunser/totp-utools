@@ -70,6 +70,7 @@ function App() {
                             <div className={classes.code}>{item.code}</div>
 
                             <button
+                                className={classes.copy}
                                 onClick={() => {
                                     window.copy(item.code)
                                 }}
@@ -79,7 +80,9 @@ function App() {
                     )
                 })}
             </div>
+            <div>Token {time} 秒后过期</div>
         </div>
     )
 }
+
 export default App
